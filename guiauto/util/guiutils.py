@@ -41,21 +41,27 @@ class guiHelper(BaseTest):
         self.parent_handle = parent_handle
 
     def window_handle_title(self):
-        time.sleep(3)
+        time.sleep(1)
         self.handles = self.driver.window_handles
         size = len(self.handles)
-        #logger.info(size)
-        for x in range(size):
-            if self.handles[x] != self.parent_handle:
-                self.driver.switch_to.window(self.handles[x])
-                logger.info('Handle-x:'+str(self.driver.title))
-            break
+        #logger.info('winSize:'+str(size))
+        if len(self.handles) <= 1:
+            self.driver.switch_to.window(self.parent_handle)
+            #logger.info('Handle-x1:' + str(self.driver.title))
+        else:
+            for x in range(size):
+                if self.handles[x] != self.parent_handle:
+                    self.driver.switch_to.window(self.handles[x])
+                    #logger.info('Handle-x2:' + str(self.driver.title))
+                break
         return self.driver.title
 
     def window_title_exists(self, title):
         self.handles = self.driver.window_handles
+        size = len(self.handles)
         if len(self.handles) <= 1:
             self.driver.switch_to.window(self.parent_handle)
+            #logger.info('Handle-x1:' + str(self.driver.title))
             return self.driver.title
         else: return title
 
@@ -71,8 +77,6 @@ class guiHelper(BaseTest):
                                       'AutomationId': control.AutomationId, 'ClassName':control.ClassName,
                                       'ClickablePoint':control.GetClickablePoint()}
                     details.append(controldetails)
-            logger.info(details)
-            logger.info(mmcWindow)
             return details, mmcWindow
         except LookupError as ex:
             gauto.EnumAndLogControl(gauto.GetRootControl(), maxDepth=1)

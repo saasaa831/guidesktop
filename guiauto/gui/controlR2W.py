@@ -19,9 +19,9 @@ class TextControl(BaseTest):
         else:return self.guihelper.get_cp_locator_element(elementx, geln[0])
 
     def getText(self, elementx):
-        logger.info('Get Text <' + elementx )
+        logger.info('Get Text <' + elementx +'>')
         getcontrolList = self.get_control_list_name(elementx)
-        logger.info('Text:' + str(getcontrolList))
+        #logger.info('Text:' + str(getcontrolList))
         return self.guihelper.find_gui_element(getcontrolList[0], getcontrolList[1]).text
 
     def get_text_value(self, elementx):
@@ -30,6 +30,11 @@ class TextControl(BaseTest):
         result = gauto.WaitForExist(textgauto, 30)
         if result == True:return textgauto
         else:logger.info('control not found')
+
+    def click_action_text(self, elementx, wintitle=None):
+        getcontrolList = self.get_control_list_name(elementx, wintitle=wintitle)
+        buttonClick = self.guihelper.find_gui_element(getcontrolList[0], getcontrolList[1])
+        buttonClick.click()
 
 class WindowControl(BaseTest):
 
@@ -41,7 +46,7 @@ class WindowControl(BaseTest):
 
     def Window_Name_Open(self, winName):
         mmcWindow = gauto.WindowControl(Name=winName)
-        logger.info(mmcWindow)
+        #logger.info(mmcWindow)
         return mmcWindow
 
 class RadioButtonControl(BaseTest):

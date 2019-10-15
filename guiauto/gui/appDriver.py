@@ -20,7 +20,7 @@ class BrowserDriver(object):
         desired_caps = {}
         desired_caps["app"] = guiutils.getappPath(browser)
         self.driver = webdriver.Remote(command_executor='http://127.0.0.1:4723', desired_capabilities=desired_caps)
-        time.sleep(2)
+        #time.sleep(2)
 
     def runnerApp(self):
         base_path = os.path.join(ROOT_DIR, "driverapp", 'guidriver.zip')

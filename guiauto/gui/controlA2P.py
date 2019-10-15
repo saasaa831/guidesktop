@@ -2,7 +2,8 @@ from guiauto.gui.base_test import BaseTest
 from guiauto.util.guiutils import guiHelper
 from .controlTypes import ControlType
 from guiautomation import guiautomation as gauto
-import pyautogui
+import pyautogui, logging
+logger = logging.getLogger(__name__)
 
 class ButtonControl(BaseTest):
 
@@ -23,7 +24,7 @@ class ButtonControl(BaseTest):
         buttonClick = self.guihelper.find_gui_element(getcontrolList[0], getcontrolList[1])
         buttonClick.click()
 
-    def clickable_action_Points(self, elementx):
+    def clickable_action_button_Points(self, elementx):
         getcontrolList = self.get_control_list_name(elementx, cp='Y')
         pyautogui.click(getcontrolList[0], getcontrolList[1])
 
@@ -32,6 +33,13 @@ class ButtonControl(BaseTest):
         geln = self.get_control_list_name(elementx)
         getlnID='1'
         result = self.guihelper.find_window_gui_element(ControlType.Button, mmcwin, geln[0], getlnID)
+        if result[1] == True:result[0].Click()
+        else:print('control not found')
+
+    def click_gui_button_action(self, elementx, elementx1):
+        mmcwin = self.guihelper.window_opened_by_name(winName=elementx)
+        geln = self.get_control_list_name(elementx1, wintitle=elementx)
+        result = self.guihelper.find_window_gui_element(ControlType.Button, mmcwin, geln[0], geln[1])
         if result[1] == True:result[0].Click()
         else:print('control not found')
 
@@ -49,19 +57,27 @@ class MenuItemControl(BaseTest):
         if not cp:return self.guihelper.get_locator_element(elementx, geln[0])
         else:return self.guihelper.get_cp_locator_element(elementx, geln[0])
 
-    def click_action_button(self, elementx, wintitle=None):
+    def click_action_menuitem(self, elementx, wintitle=None):
         getcontrolList = self.get_control_list_name(elementx, wintitle=wintitle)
+        logger.info(getcontrolList)
         getclicked=self.guihelper.find_gui_element(getcontrolList[0], getcontrolList[1])
         getclicked.click()
 
-    def clickable_action_Points(self, elementx):
+    def clickable_action_menuitem_Points(self, elementx):
         getcontrolList = self.get_control_list_name(elementx, cp='Y')
         pyautogui.click(getcontrolList[0], getcontrolList[1])
 
-    def click_gui_action(self, elementx):
+    def click_gui_action_menuitem(self, elementx):
         geln = self.guihelper.control_element_details(gauto.MenuItemControl)
         getId = self.guihelper.get_locator_element(elementx, geln[0])
         result =self.guihelper.find_window_gui_element(geln[1], getId[0], getId[1])
+        if result[1] == True:result[0].Click()
+        else:print('control not found')
+
+    def click_gui_menuitem_action(self, elementx, elementx1):
+        mmcwin = self.guihelper.window_opened_by_name(winName=elementx)
+        geln = self.get_control_list_name(elementx1, wintitle=elementx)
+        result = self.guihelper.find_window_gui_element(ControlType.MenuItem, mmcwin, geln[0], geln[1])
         if result[1] == True:result[0].Click()
         else:print('control not found')
 
@@ -92,7 +108,7 @@ class EditControl(BaseTest):
     def type_send_keys_autogui(self, txtvalue):
         pyautogui.typewrite(txtvalue)
 
-    def clickable_action_Points(self, elementx):
+    def clickable_action_edit_Points(self, elementx):
         getcontrolList = self.get_control_list_name(elementx, cp='Y')
         pyautogui.click(getcontrolList[0], getcontrolList[1])
 
@@ -112,7 +128,7 @@ class GroupControl(BaseTest):
         self.window_title = self.guihelper.window_title_exists(winHandle)
 
     def get_group_childrens(self, elementx):
-        get_window_details = geln = self.guihelper.control_element_details(gauto.GroupControl)
+        get_window_details = self.guihelper.control_element_details(gauto.GroupControl)
         gridLista = get_window_details[1].GroupControl(Name=elementx)
         lista = gridLista.GetChildren()
         listx = []

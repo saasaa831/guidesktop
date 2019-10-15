@@ -21,7 +21,7 @@ class BaseTest(TestCase):
         cls.browser = 'OUTLOOK.EXE'
         cls.driver = BrowserDriver(cls.browser).driver
         cls.driver.implicitly_wait(10)
-        time.sleep(3)
+        time.sleep(2)
         cls.driver.switch_to.window(cls.driver.window_handles[0])
         cls.parent_handle = cls.driver.current_window_handle
         cls.cDriver = allPages(cls.driver, cls.parent_handle)
@@ -33,7 +33,7 @@ class BaseTest(TestCase):
         sdownProcess(cls.browser)
 
 
-   #@mark.py3dev
+    #@mark.py3dev
     def test_001_try_send_via_outlook_new_email(self):
         logger.info('Testcase-01: Send new email from outlook')
         try:
@@ -46,7 +46,7 @@ class BaseTest(TestCase):
             logger.error(traceback.format_exc())
             raise Exception(str(e))
 
-    @mark.py3dev
+    #@mark.py3dev
     def test_002_try_send_via_outlook_new_items(self):
         logger.info('Testcase-02: Send email messages from outlook via New Items')
         try:
@@ -80,7 +80,7 @@ class BaseTest(TestCase):
         try:
             b4secure = self.cDriver.emailWindow.get_acc_group_items()
             if 'Secured' in b4secure:
-                self.cDriver.emailWindow.click_secured_button('Secured')
+                self.cDriver.emailWindow.click_secured_button()
                 afsecure = self.cDriver.emailWindow.get_pane_details_secure()
                 # afsecure = panectrl.get_pane_children_details()
                 logger.info(afsecure)
@@ -94,7 +94,7 @@ class BaseTest(TestCase):
         try:
             afsecure = self.cDriver.emailWindow.get_pane_details_secure_removed()
             if 'Remove Security' in afsecure:
-                self.cDriver.emailWindow.click_remove_security_link_action('Remove Security')
+                self.cDriver.emailWindow.click_remove_security_link_text()
                 logger.info(afsecure)
         except Exception as e:
             logger.error(traceback.format_exc())
@@ -104,12 +104,12 @@ class BaseTest(TestCase):
     def test_006_try_send_via_outlook_accellion_group_items_attach_file(self):
         logger.info('Testcase-06: Try Attach file to new email')
         try:
-            self.cDriver.emailWindow.click_new_email_button()
+            #self.cDriver.emailWindow.click_new_email_button()
             self.cDriver.emailWindow.enter_to_address('ishafee01@gmail.com')
             self.cDriver.emailWindow.enter_subject('With Accellion Group Attach file')
             self.cDriver.emailWindow.click_attach_menuitem()
             self.cDriver.emailWindow.click_attach_file_menuitem()
-            valkey = os.path.join(ROOT_DIR, 'files', 'KW_TestData1.xlsx')
+            valkey = os.path.join(root_path, 'example', 'files', 'KW_TestData1.xlsx')
             logger.info(valkey)
             self.cDriver.ffattachments.file_attachment(valkey)
             self.cDriver.ffattachments.file_attach_open_button()
@@ -130,13 +130,14 @@ class BaseTest(TestCase):
             self.cDriver.emailWindow.enter_subject('With Accellion Group Attach folder')
             self.cDriver.emailWindow.click_attach_menuitem()
             self.cDriver.emailWindow.click_attach_folder_menuitem()
-            valkey = os.path.join(ROOT_DIR, 'files', 'trayfiles')
-            logger.info(valkey)
+            valkey = os.path.join(root_path, 'example', 'files', 'trayfiles')
+            #logger.info(valkey)
             self.cDriver.ffattachments.folder_attachment(valkey)
             self.cDriver.ffattachments.folder_attach_select_folder_button()
+            txttn = self.cDriver.emailWindow.get_text('trayfiles.zip')
+            #logger.info('Folder:'+str(txttn))
             self.cDriver.emailWindow.click_send_button()
-            # txttn = cDriver.text.getText('KW_TestData1.xlsx')
-            # self.assertEqual('KW_TestData1.xlsx', txttn)
+            self.assertEqual('trayfiles.zip', txttn)
         except Exception as e:
             logger.error(traceback.format_exc())
             raise Exception(str(e))
