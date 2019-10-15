@@ -1,0 +1,30 @@
+html/body/div[4]/div[2]/div[2]/div/span/span - 1 user is deleted
+html/body/div[4]/div[2]/div[2]/div/span/span - 1 user is suspended
+html/body/div[4]/div[2]/div[1]/div[1]/span/span - Are you sure you want to suspend the following user?
+html/body/div[4]/div[2]/div[1]/div[1]/span/span
+html/body/div[4]/div[2]/div[1]/div[2]- shafee.syed+1@accellion.com
+
+
+html/body/div[4]/div[2]/div[2]/div[1]/div[1] - 1 user is added
+html/body/div[4]/div[2]/div[2]/div[1]/div[2] - shafee.syed+1@accellion.com
+
+html/body/div[2]/div/div[1]/div[2]/div/div/div/div[1]/div/div[2] - Manage Users
+html/body/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[2] - LDAP Groups
+html/body/div[2]/div/div[1]/div[2]/div/div/div/div[3]/div/div[2] - User Profiles
+html/body/div[2]/div/div[1]/div[2]/div/div/div/div[4]/div/div[2] - User Policies
+
+
+//div[4]/div[2]/div[1]/div[3]/div[2]/div/select//option[2] - Standrad
+//div[4]/div[2]/div[1]/div[3]/div[2]/div/select//option[1] - Restricted
+
+//div[4]/div[2]/div[1]/div[4]/div[2]/div/select//option[2] - System
+//div[4]/div[2]/div[1]/div[4]/div[2]/div/select//option[1] - Application
+
+
+html/body/div[4]/div[2]/div/div/div[2]/div/table/tbody[2]/tr[2]/td/span[1] - No LDAP group matches the search criteria
+html/body/div[2]/div/div[2]/div/div[2]/div/div/div/div/div[3]/div/table/tbody[2]/tr[2]/td/span[1] - No data matches the search criteria
+
+
+https://communities.vmware.com/people/pierreLx/blog/2013/08/07/using-vi-java-api-tutorial
+
+https://communities.vmware.com/people/pierreLx/blog/2013/08/07/using-vi-java-api-tutorial

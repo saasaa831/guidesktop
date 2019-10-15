@@ -1,0 +1,13 @@
+include LICENSE
+include guiautomation/*.py
+include guiautomation/bin/*.dll
+include guiautomation/guidriver/*.*
+include guiauto/config/*.*
+include guiauto/example/*.*
+include guiauto/example/files/*.*
+include guiauto/example/pages/*.*
+include guiauto/example/tests/*.*
+include guiauto/example/tests/logs/*.*
+include guiauto/gui/*.*
+include guiauto/gui/driverapp/*.*
+include guiauto/util/*.*
