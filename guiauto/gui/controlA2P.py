@@ -143,7 +143,7 @@ class PaneControl(BaseTest):
 class AppBarControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -159,7 +159,7 @@ class CalendarControl(BaseTest):
 class CheckBoxControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -167,7 +167,7 @@ class CheckBoxControl(BaseTest):
 class ComboBoxControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -175,7 +175,7 @@ class ComboBoxControl(BaseTest):
 class CustomControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -183,7 +183,7 @@ class CustomControl(BaseTest):
 class DataGridControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -191,7 +191,7 @@ class DataGridControl(BaseTest):
 class DataItemControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -199,7 +199,7 @@ class DataItemControl(BaseTest):
 class DocumentControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -207,7 +207,7 @@ class DocumentControl(BaseTest):
 class HeaderControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -215,7 +215,7 @@ class HeaderControl(BaseTest):
 class HeaderItemControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -223,7 +223,7 @@ class HeaderItemControl(BaseTest):
 class HyperlinkControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -231,7 +231,7 @@ class HyperlinkControl(BaseTest):
 class ImageControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -239,7 +239,7 @@ class ImageControl(BaseTest):
 class ListControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -247,7 +247,7 @@ class ListControl(BaseTest):
 class ListItemControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -255,7 +255,7 @@ class ListItemControl(BaseTest):
 class MenuBarControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -263,7 +263,7 @@ class MenuBarControl(BaseTest):
 class MenuControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
@@ -271,7 +271,7 @@ class MenuControl(BaseTest):
 class ProgressBarControl(BaseTest):
 
     def __init__(self, driver, parent_handle):
-        super().__init__()
+        super().__init__(driver, parent_handle)
         self.guihelper = guiHelper(driver, parent_handle)
         winHandle = self.guihelper.window_handle_title()
         self.window_title = self.guihelper.window_title_exists(winHandle)
